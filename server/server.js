@@ -27,13 +27,13 @@ app.post('/register', authController.checkUser, authController.registerUser, aut
 });
 
 // route handlers for reservations
-// app.post('/reservation', authController.postReservation, (req, res) => {
-//   return res.status(201).json({ reservationId: res.locals.reservationId });
-// });
+app.post('/reservation', authController.postReservation, (req, res) => {
+  return res.status(201).json({ reservationId: res.locals.reservationId });
+});
 
-// app.delete('/reservation', authController.deleteReservation, (req, res) => {
-//   return res.status(200).send(`Your reservation for ${res.locals.dateTime} has been cancelled`);
-// })
+app.delete('/reservation', authController.deleteReservation, (req, res) => {
+  return res.status(200).send(`Your reservation for ${res.locals.dateTime} has been cancelled`);
+})
 
 // catch-all route handler 
 app.use('*', (req, res) => {

@@ -1,6 +1,5 @@
 const { PORT } = require('../config.js');
 const express = require('express');
-const pg = require('postgres');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const authController = require('./controllers/authController');
@@ -27,13 +26,13 @@ app.post('/register', authController.checkUser, authController.registerUser, aut
 });
 
 // route handlers for reservations
-app.post('/reservation', authController.postReservation, (req, res) => {
+app.post('/reservation', reservationController.postReservation, (req, res) => {
   return res.status(201).json({ reservationId: res.locals.reservationId });
 });
 
-app.delete('/reservation', authController.deleteReservation, (req, res) => {
+app.delete('/reservation', reservationController.deleteReservation, (req, res) => {
   return res.status(200).send(`Your reservation for ${res.locals.dateTime} has been cancelled`);
-})
+});
 
 // catch-all route handler 
 app.use('*', (req, res) => {

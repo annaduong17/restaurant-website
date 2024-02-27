@@ -27,8 +27,7 @@ CREATE TABLE public.reservations (
 );
 
 CREATE TABLE public.cards(
-  "_id" SERIAL PRIMARY KEY NOT NULL,
-  "res_id" INT NOT NULL, 
+  "_id" SERIAL PRIMARY KEY NOT NULL, 
   "cardholder_name" VARCHAR(100) NOT NULL, 
   "card_type" VARCHAR(50) NOT NULL, 
   "card_number" VARCHAR(16) NOT NULL,

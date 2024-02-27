@@ -12,7 +12,7 @@ function errorCreator(funcName, error) {
 
 reservationController.postReservation = async (req, res, next) => {
   try {
-    const { user_id, date, time, cardholder_name, card_type, card_number, exp_date, cvv_cvc, billing_address } = req.body;
+    const { user_id, date, time, num_of_guests, cardholder_name, card_type, card_number, exp_date, cvv_cvc, billing_address } = req.body;
 
     const insertCard = `INSERT INTO cards (cardholder_name, card_type, card_number, exp_date, cvv_cvc, billing_address) VALUES($1, $2, $3, $4, $5, $6) RETURNING *;`;
 
@@ -20,9 +20,9 @@ reservationController.postReservation = async (req, res, next) => {
 
     const card_id = cardRows[0]._id;
 
-    const insertRes = `INSERT INTO reservations (date, time, card_id, user_id) VALUES($1, $2, $3, $4) RETURNING *;`;
+    const insertRes = `INSERT INTO reservations (date, time, num_of_guests card_id, user_id) VALUES($1, $2, $3, $4) RETURNING *;`;
 
-    const { rows: resRows } = await pool.query(insertRes, [ date, time, card_id, user_id ]);
+    const { rows: resRows } = await pool.query(insertRes, [ date, time, num_of_guests, card_id, user_id ]);
 
     res.locals.reservationId = resRows[0]._id;
     return next();

@@ -31,7 +31,7 @@ app.post('/reservation', reservationController.postReservation, (req, res) => {
 });
 
 app.delete('/reservation', reservationController.deleteReservation, (req, res) => {
-  return res.status(200).send(`Your reservation for ${res.locals.dateTime} has been cancelled`);
+  return res.status(200).send(`Your reservation for ${res.locals.date} at ${res.locals.time} has been cancelled.`);
 });
 
 // catch-all route handler 

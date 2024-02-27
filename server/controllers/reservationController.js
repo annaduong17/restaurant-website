@@ -36,8 +36,15 @@ reservationController.deleteReservation = async (req, res, next) => {
   try {
     const { id } = req.body; 
 
-    // delete logic 
-    res.locals.dateTime = {};
+    const getRes = `SELECT * FROM public.reservations WHERE _id = $1;`;
+    const { rows } = await pool.query(getRes, [id]);
+    const date = rows[0].date;
+    const time = rows[0].time;
+
+    const deleteRes = `DELETE FROM reservations WHERE _id = $1;`;
+    await pool.query(deleteRes, [id]);
+
+    res.locals = { date, time};
     return next();
 
   } catch (error ) {

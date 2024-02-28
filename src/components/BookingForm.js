@@ -17,7 +17,7 @@ function BookingForm() {
       <option value="pm">PM</option>
      </select>
 
-     <input type="range" placeholder="0"/>
+     <input type="text" placeholder="0"/>
      <label htmlFor="">people</label>
 
      <button>MAKE RESERVATION</button>

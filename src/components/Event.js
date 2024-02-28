@@ -1,13 +1,20 @@
 import Button from "./Button";
 import EventNavLinks from "./EventNavLinks";
 
-function Event() {
+function Event({ title, description, imgDesktop, imgMobile }) {
   return (
     <div>
-      <h2>Family Gathering</h2>
-      <p>We love catering for entire families. So please bring everyone along for a special meal with your loved ones. We'll provide a memorable experience for all.</p>
-      <Button />
-      <EventNavLinks />
+      <div>
+        <img src="/images/patterns/pattern-curve-top-right.svg" alt="curve pattern" />
+        <img src="/images/patterns/pattern-lines.svg" alt="lines pattern" />
+      </div>
+      <div>
+        <img src={imgDesktop} alt={title} />
+        <h2>{title}</h2>
+        <p>{description}</p>
+        <Button />
+        <EventNavLinks />
+      </div>
     </div>
   );
 }

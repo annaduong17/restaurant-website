@@ -1,6 +1,8 @@
+import { NavLink } from 'react-router-dom';
+
 function Button() {
   return (
-    <div>BOOK A TABLE</div>
+    <NavLink to="/reservations">BOOK A TABLE</NavLink>
   );
 }
 

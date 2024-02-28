@@ -1,6 +1,12 @@
+import Reservations from './Reservations';
+import BookingForm from './BookingForm';
+
 function ReservationsPage() {
   return (
-    <div>ReservationsPage</div>
+    <div>
+      <Reservations />
+      <BookingForm />
+    </div>
   );
 }
 

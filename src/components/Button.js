@@ -1,6 +1,6 @@
 function Button() {
   return (
-    <div>Button</div>
+    <div>BOOK A TABLE</div>
   );
 }
 

@@ -12,14 +12,10 @@ $shuttle-gray: #5c6779;
 html, 
 body {
   font-family: 'League Spartan', sans-serif;
-  font-size: 16px;
+  font-size: 18px;
   margin: 0;
   width: 100%;
   
-}
-
-img {
-  max-width: 100%;
 }
 
 .app {
@@ -28,7 +24,7 @@ img {
 }
 
 .dine-logo {
-  width: 85px; 
+  width: 100px; 
   height: 100%;
 }
 
@@ -36,7 +32,6 @@ img {
   border: 1px solid white;
   padding: 20px 50px;
   color: white;
-  font-size: 0.75rem;
   text-decoration: none;
   letter-spacing: 3px;
 }
@@ -53,25 +48,34 @@ img {
   }
 
   .header-content {
-    width: 500px;
+    width: 600px;
     padding-top: 50px;
     margin-inline: 150px;
     
     h1 {
       margin-block: 100px 0;
-      font-size: 65px;
-      font-weight: 300;
-      letter-spacing: 1px;
+      font-size: 80px;
+      font-weight: 200;
+      line-height: 4.5rem;
     }
 
     p {
-      width: 350px;
+      width: 400px;
       margin-bottom: 60px;
       font-size: 1rem;
-      font-weight: 200;
+      font-weight: 300;
       line-height: 1.5rem;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.75px;
     }
+  }
+}
+
+.home-page {
+  width: 100%; 
+
+  .curve-pattern {
+    position: absolute;
+    top: 700px;
   }
 }
 

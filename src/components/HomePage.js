@@ -5,13 +5,13 @@ import Banner from './Banner';
 
 function HomePage() {
   return (
-    <div>
+    <div className="home-page">
       <Header />
-      <section>
-        <div>
+      <section className="enjoyable-place-section">
+        <div className="curve-pattern">
           <img src="images/patterns/pattern-curve-top-right.svg" alt="curve pattern" />
         </div>
-        <div>
+        <div className="picture">
           <img src="/images/homepage/enjoyable-place-desktop.jpg" alt="nature" />
         </div>
         <div>
@@ -21,7 +21,7 @@ function HomePage() {
         </div>
       </section>
 
-      <section>
+      <section className="locally-sourced-section">
         <div>
           <img src="/images/patterns/pattern-curve-top-left.svg" alt="curve pattern" />
         </div>
@@ -38,11 +38,11 @@ function HomePage() {
         </div>
       </section>
 
-      <section>
+      <section className="highlights-section">
        <HighlightSection />
       </section>
 
-      <section>
+      <section className="family-gathering-section">
        <Event 
         title="Family Gathering"
         description="We love catering for entire families. So please bring everyone along for a special meal with your loved ones. We'll provide a memorable experience for all."

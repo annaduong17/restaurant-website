@@ -20,12 +20,11 @@ body {
 
 .app {
   max-width: 1440px;
-  margin: auto;
+  margin-inline: auto;
 }
 
 .dine-logo {
   width: 100px; 
-  height: 100%;
 }
 
 .booking-btn {
@@ -36,29 +35,25 @@ body {
   letter-spacing: 3px;
 }
 
-.header {
-  position: relative;
-  color: white;
+.home-page {
+  background-image: url("../public/images/homepage/hero-bg-desktop.jpg");
+  background-repeat: no-repeat;
+  width: 100%; 
+  padding-inline: 165px;
 
-  .header-hero {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-  }
-
-  .header-content {
-    width: 600px;
+  .header {
+    height: 820px;
+    color: white;
     padding-top: 50px;
-    margin-inline: 150px;
-    
+  
     h1 {
+      width: 600px;
       margin-block: 100px 0;
       font-size: 80px;
       font-weight: 200;
       line-height: 4.5rem;
     }
-
+  
     p {
       width: 400px;
       margin-bottom: 60px;
@@ -68,14 +63,19 @@ body {
       letter-spacing: 0.75px;
     }
   }
-}
-
-.home-page {
-  width: 100%; 
 
   .curve-pattern {
     position: absolute;
-    top: 700px;
+    top: 1070px;
+  }
+
+  .enjoyable-place-section {
+    display: flex;
+
+    .picture img {
+      position: absolute;
+      top: 720px;
+    }
   }
 }
 

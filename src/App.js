@@ -1,4 +1,3 @@
-import DineLogo from './components/DineLogo';
 import HomePage from './components/HomePage';
 import Footer from './components/Footer';
 import SpecialEventsPage from './components/SpecialEventsPage';
@@ -10,9 +9,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 function App() {
   return (
     <BrowserRouter>
-      <div>
-        <DineLogo />
-  
+      <div className='app'>
         <Routes>
           <Route path='/' element={<HomePage />}/>
           <Route path='/special-events' element={<SpecialEventsPage />}/>

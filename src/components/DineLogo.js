@@ -1,8 +1,6 @@
 function DineLogo() {
   return (
-    <div>
-      <img src="/images/logo.svg" alt="dine logo"/>
-    </div>
+    <img className="dine-logo" src="/images/logo.svg" alt="dine logo"/>
   );
 }
 

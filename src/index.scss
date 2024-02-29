@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=League+Spartan:wght@100..900&display=swap');
+
+// primary 
+$beaver: #9e7f66;
+$cod-gray: #111111;
+
+// secondary 
+$mirage: #17192b;
+$ebony-clay: #242b37;
+$shuttle-gray: #5c6779;
+
+html, 
+body {
+  font-family: 'League Spartan', sans-serif;
+  font-size: 16px;
+  margin: 0;
+  width: 100%;
+  
+}
+
+img {
+  max-width: 100%;
+}
+
+.app {
+  max-width: 1440px;
+  margin: auto;
+}
+
+.dine-logo {
+  width: 85px; 
+  height: 100%;
+}
+
+.booking-btn {
+  border: 1px solid white;
+  padding: 20px 50px;
+  color: white;
+  font-size: 0.75rem;
+  text-decoration: none;
+  letter-spacing: 3px;
+}
+
+.header {
+  position: relative;
+  color: white;
+
+  .header-hero {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+
+  .header-content {
+    width: 500px;
+    padding-top: 50px;
+    margin-inline: 150px;
+    
+    h1 {
+      margin-block: 100px 0;
+      font-size: 65px;
+      font-weight: 300;
+      letter-spacing: 1px;
+    }
+
+    p {
+      width: 350px;
+      margin-bottom: 60px;
+      font-size: 1rem;
+      font-weight: 200;
+      line-height: 1.5rem;
+      letter-spacing: 0.5px;
+    }
+  }
+}
+
+
+

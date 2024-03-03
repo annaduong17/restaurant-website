@@ -29,17 +29,17 @@ const renderedItems = content.map((item, i) => {
 
 function HighlightSection() {
   return (
-    <div>
-      <div>
+    <section className="highlights-section">
+      <div className="content">
         <img src="/images/patterns/pattern-divide.svg" alt="divide pattern" />
         <h2>A few highlights from our menu</h2>
         <p>We cater for all dietary requirements, but here's a glimpse at some of our diner's favourites. Our menu is revamped every season.</p>
       </div>
 
-      <div>
+      <div className="highlights">
         {renderedItems}
       </div>
-    </div>
+    </section>
   );
 }
 

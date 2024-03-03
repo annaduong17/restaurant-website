@@ -3,7 +3,7 @@ import EventNavLinks from "./EventNavLinks";
 
 function Event({ title, description, imgDesktop, imgMobile }) {
   return (
-    <div>
+    <section className="family-gathering-section">
       <div>
         <img src="/images/patterns/pattern-curve-top-right.svg" alt="curve pattern" />
         <img src="/images/patterns/pattern-lines.svg" alt="lines pattern" />
@@ -15,7 +15,7 @@ function Event({ title, description, imgDesktop, imgMobile }) {
         <Button />
         <EventNavLinks />
       </div>
-    </div>
+    </section>
   );
 }
 

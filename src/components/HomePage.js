@@ -38,11 +38,9 @@ function HomePage() {
         </div>
       </section>
 
-      <section className="highlights-section">
-       <HighlightSection />
-      </section>
+      <HighlightSection />
 
-      <section className="family-gathering-section">
+      <section >
        <Event 
         title="Family Gathering"
         description="We love catering for entire families. So please bring everyone along for a special meal with your loved ones. We'll provide a memorable experience for all."

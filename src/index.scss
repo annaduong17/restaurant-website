@@ -32,6 +32,7 @@ body {
   border: 1px solid white;
   padding: 20px 50px;
   color: white;
+  font-size: 0.85rem;
   text-decoration: none;
   letter-spacing: 3px;
 }
@@ -218,6 +219,24 @@ body {
     font-weight: 600;
     text-decoration: none;
     line-height: 1.5rem;
+  }
+}
+
+.banner {
+  height: 240px;
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  img {
+    position: absolute;
+    z-index: -1;
+  }
+
+  h3 {
+    color: white;
+    font-size: 2.4rem;
+    margin-inline: 165px;
   }
 }
 

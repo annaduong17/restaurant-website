@@ -67,14 +67,27 @@ body {
   .curve-pattern {
     position: absolute;
     top: 1070px;
+    left: 0;
   }
 
   .enjoyable-place-section {
     display: flex;
+    align-items: center;
+    margin-top: -100px;
+  }
 
-    .picture img {
-      position: absolute;
-      top: 720px;
+  .content {
+    width: 400px;
+    margin-left: 100px;
+
+    h2 {
+      width: 350px;
+      font-size: 2.5rem;
+      letter-spacing: 1px;
+    }
+
+    p {
+      line-height: 150%;
     }
   }
 }

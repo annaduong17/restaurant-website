@@ -2,19 +2,19 @@ import { NavLink } from 'react-router-dom';
 
 function EventNavLinks() {
   return (
-    <div>
-      <section>
-        <img src="/images/patterns/pattern-divide.svg" alt="divide pattern" />
-        <NavLink>FAMILY GATHERING</NavLink>
-      </section>
-      <section>
-        <img src="/images/patterns/pattern-divide.svg" alt="divide pattern" />
-        <NavLink>SPECIAL EVENTS</NavLink>
-      </section>
-      <section> 
-        <img src="/images/patterns/pattern-divide.svg" alt="divide pattern" />
-        <NavLink>SOCIAL EVENTS</NavLink>
-      </section>
+    <div className='event-navlinks'>
+      <div>
+        <span></span>
+        <NavLink className="link">FAMILY GATHERING</NavLink>
+      </div>
+      <div>
+      <span></span>
+        <NavLink className="link">SPECIAL EVENTS</NavLink>
+      </div>
+      <div> 
+      <span></span>
+        <NavLink className="link">SOCIAL EVENTS</NavLink>
+      </div>
     </div>
   );
 }

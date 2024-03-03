@@ -40,14 +40,12 @@ function HomePage() {
 
       <HighlightSection />
 
-      <section >
-       <Event 
+      <Event 
         title="Family Gathering"
         description="We love catering for entire families. So please bring everyone along for a special meal with your loved ones. We'll provide a memorable experience for all."
         imgDesktop="/images/homepage/family-gathering-desktop.jpg"
         imgMobile="/images/homepage/family-gathering-mobile.jpg"
       />
-      </section>
 
       <Banner />
     </div>

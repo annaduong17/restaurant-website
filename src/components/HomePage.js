@@ -22,7 +22,7 @@ function HomePage() {
       </section>
 
       <section className="locally-sourced-section">
-        <div>
+        <div className="curve-pattern">
           <img src="/images/patterns/pattern-curve-top-left.svg" alt="curve pattern" />
         </div>
         <div className="content">
@@ -33,7 +33,7 @@ function HomePage() {
         <div>
           <img src="/images/homepage/locally-sourced-desktop.jpg" alt="chef plating food" />
         </div>
-        <div>
+        <div className="lines-pattern">
           <img src="/images/patterns/pattern-lines.svg" alt="lines pattern" />
         </div>
       </section>

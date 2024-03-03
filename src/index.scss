@@ -21,6 +21,7 @@ body {
 .app {
   max-width: 1440px;
   margin-inline: auto;
+  position: relative;
 }
 
 .dine-logo {
@@ -64,21 +65,49 @@ body {
     }
   }
 
-  .curve-pattern {
-    position: absolute;
-    top: 1070px;
-    left: 0;
-  }
 
-  .enjoyable-place-section {
+  section {
     display: flex;
     align-items: center;
     margin-top: -100px;
+    margin-bottom: 200px;
+
+    
   }
+
+  .enjoyable-place-section {
+    .curve-pattern {
+      position: absolute;
+      top: 1070px;
+      left: 0;
+    }
+
+    .content {
+      margin-left: 100px;
+    }
+  } 
+
+  .locally-sourced-section {
+    .curve-pattern {
+      position: absolute;
+      top: 1911px;
+      right: 0;
+    }
+
+    .content {
+      margin-right: 150px;
+    }
+
+    .lines-pattern {
+      position: absolute;
+      top: 1873px;
+      right: 50px;
+    }
+  }
+
 
   .content {
     width: 400px;
-    margin-left: 100px;
 
     h2 {
       width: 350px;

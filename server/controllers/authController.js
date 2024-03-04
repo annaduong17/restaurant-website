@@ -41,6 +41,7 @@ authController.getUser = async (req, res, next) => {
 
       if (valid) {
         res.locals.userId = rows[0]._id;
+        res.locals.firstName = rows[0].first_name;
       }
     }
     return next();
@@ -60,6 +61,7 @@ authController.registerUser = async (req, res, next) => {
     const { rows } = await pool.query(insertUser, params);
     if (rows.length) {
       res.locals.userId = rows[0]._id;
+      res.locals.firstName = rows[0].first_name;
     }
 
     return next();

@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import { useState } from "react";
 import axios from 'axios';
 
-function Register() {
+function Register({ setUserInfo }) {
   const [ formData, setFormData ] = useState({
     firstName: "",
     lastName: "",
@@ -11,11 +11,10 @@ function Register() {
 
   const [ userExists, setUserExists ] = useState(false);
 
-  let userId;
-
   const [ errors, setErrors ] = useState({});
 
   const [ formSubmitted, setFormSubmitted ] = useState(false);
+  
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -52,10 +51,11 @@ function Register() {
           email: formData.email,
           password: formData.password
         });
-        console.log(response.data.success);
+        console.log(response.data);
   
         if (response.data.userId) {
-          userId = response.data.userId;
+          setUserInfo(response.data);
+          setUserExists(false);
         } else if (!response.data.success) {
           setUserExists(true);
         }
@@ -99,6 +99,7 @@ function Register() {
      return newErrors;
   };
 
+  
   return ( 
     <form noValidate onSubmit={handleSubmit} className="register-form">
       <div className="first-name-container">

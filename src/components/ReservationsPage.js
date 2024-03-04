@@ -1,10 +1,12 @@
+import { useState } from 'react';
 import Reservations from './Reservations';
-import BookingForm from './BookingForm';
 import DineLogo from './DineLogo';
-import Login from './Login';
-import Register from './Register';
+import UserAccount from './UserAccount';
+import BookingForm from './BookingForm';
 
 function ReservationsPage() {
+  const [ userInfo, setUserInfo ] = useState(null);
+
   const imgDesktop = "/images/booking/hero-bg-desktop.jpg";
   const imgTablet = "/images/booking/hero-bg/tablet.jpg";
   const imgMobile = "/images/booking/hero-bg/mobile.jpg";
@@ -19,7 +21,7 @@ function ReservationsPage() {
       <div className='booking'>
         <DineLogo />
         <Reservations />
-        <Register />
+        {userInfo ? <BookingForm userInfo={userInfo} /> : <UserAccount setUserInfo={setUserInfo}/>}
       </div>
     </div>
   );

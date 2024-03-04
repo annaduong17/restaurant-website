@@ -1,6 +1,6 @@
 function BookingForm() {
   return (
-    <form >
+    <form className="booking-form">
       <section>
         <input type="text" placeholder="First Name" />
         <input type="text" placeholder="Last Name" />

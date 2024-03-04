@@ -1,20 +1,24 @@
 import Reservations from './Reservations';
 import BookingForm from './BookingForm';
+import DineLogo from './DineLogo';
 
 function ReservationsPage() {
-  const imgDesktop = "/images/booking/hero-bg/desktop.jpg";
+  const imgDesktop = "/images/booking/hero-bg-desktop.jpg";
   const imgTablet = "/images/booking/hero-bg/tablet.jpg";
   const imgMobile = "/images/booking/hero-bg/mobile.jpg";
 
   return (
-    <div>
-      <div>
+    <div className='reservations-page'>
+      <div className='displays'>
         <img src={imgDesktop} alt="bowl of food" />
         <img src="/images/patterns/pattern-curve-bottom-right.svg" alt="curve pattern" />
         <img src="/images/patterns/pattern-lines.svg" alt="lines pattern" />
       </div>
-      <Reservations />
-      <BookingForm />
+      <div className='booking'>
+        <DineLogo />
+        <Reservations />
+        <BookingForm />
+      </div>
     </div>
   );
 }

@@ -1,6 +1,8 @@
 import Reservations from './Reservations';
 import BookingForm from './BookingForm';
 import DineLogo from './DineLogo';
+import Login from './Login';
+import Register from './Register';
 
 function ReservationsPage() {
   const imgDesktop = "/images/booking/hero-bg-desktop.jpg";
@@ -17,7 +19,7 @@ function ReservationsPage() {
       <div className='booking'>
         <DineLogo />
         <Reservations />
-        <BookingForm />
+        <Register />
       </div>
     </div>
   );

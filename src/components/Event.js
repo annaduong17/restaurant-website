@@ -16,7 +16,7 @@ function Event({ title, description, imgDesktop, imgMobile }) {
         <div className="content">
           <h2>{title}</h2>
           <p>{description}</p>
-          <Button />
+          <Button path="/reservations" className="booking-btn">BOOK A TABLE</Button>
           <EventNavLinks />
         </div>
       </section>

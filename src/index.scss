@@ -28,7 +28,7 @@ body {
   width: 100px; 
 }
 
-.booking-btn {
+.btn {
   border: 1px solid white;
   padding: 20px 50px;
   color: white;
@@ -298,11 +298,46 @@ body {
       p {
         line-height: 1.5rem;
       }
+
+      .account-buttons {
+        margin-block: 50px;
+      }
+
+      .btn {
+        padding-inline: 20px;
+        margin-block: 50px;
+      }
+
+      .login-btn {
+        margin-right: 20px;
+      }
     }
 
      .booking-form {
-      grid-area: form;
+      grid-area: form; 
+      background-color: white;
      }
+  }
+}
+
+.login-form {
+  background-color: white;
+
+  .btn {
+    color: black;
+    border-color: black;
+  }
+}
+
+.register-form {
+  background-color: white;
+  padding: 30px;
+
+  input {
+    outline: none;
+    border: none;
+    width: 100%;
+    padding-block: 10px;
   }
 }
 

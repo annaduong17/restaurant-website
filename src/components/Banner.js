@@ -9,7 +9,7 @@ function Banner() {
     <div className="banner">
       <img src={imgDesktop} alt="bowl of food" />
       <h3>Ready to make a reservation?</h3>
-      <Button />
+      <Button path="/reservations" className="booking-btn">BOOK A TABLE</Button>
     </div>
   );
 }

@@ -266,6 +266,10 @@ body {
 .reservations-page {
   position: relative;
 
+  .user-account {
+    display: flex;
+  }
+
   .booking {
     position: absolute;
     top: 0;
@@ -313,25 +317,30 @@ body {
       }
     }
 
-     .booking-form {
-      grid-area: form; 
-      background-color: white;
+     .booking-form-container {
+      h2 {
+        color: white;
+      }
+
+      .booking-form {
+        grid-area: form; 
+        background-color: white;
+
+        section {
+          display: flex;
+        }
+       }
      }
   }
 }
 
-.login-form {
+.register-form , 
+.login-form,
+.booking-form {
   background-color: white;
-
-  .btn {
-    color: black;
-    border-color: black;
-  }
-}
-
-.register-form {
-  background-color: white;
+  margin-right: 30px;
   padding: 30px;
+  min-width: 250px;
 
   input {
     outline: none;

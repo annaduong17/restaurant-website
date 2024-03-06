@@ -1,24 +1,53 @@
+import { useState } from 'react';
+
 function BookingForm({ userInfo }) {
+  const [ formData, setFormData ] = useState({
+    date: {
+      month: "",
+      day: "",
+      year: ""
+    },
+    time: {
+      hour: "",
+      minute: ""
+    }
+  });
+
+  const handleDateInputChange = (e) => {
+    const { name, value} = e.target;
+
+    setFormData(prev => {
+      const updatedFormData = {...prev, date: {...prev.date, [name]: value}};
+
+      return updatedFormData;
+    });
+  }
+
+  const handleTimeInputChange = (e) => {
+    const { name, value} = e.target;
+
+    setFormData(prev => {
+      const updatedFormData = {...prev, time: {...prev.time, [name]: value}};
+
+      return updatedFormData;
+    });
+  }
+
   return (
-    <div>
-      <h2>Hi {userInfo.firstName}!</h2>
+    <div className="booking-form-container">
+      {/* <h2>Hi {userInfo.firstName}!</h2> */}
       <form className="booking-form">
-        <section>
-          <input type="text" placeholder="First Name" />
-          <input type="text" placeholder="Last Name" />
-        </section>
-
-        <section>
+        <section className="date-section">
           <label htmlFor="">Pick a date</label>
-          <input type="text" placeholder="MM"/>
-          <input type="text" placeholder="DD"/>
-          <input type="text" placeholder="YYYY"/>
+          <input onChange={handleDateInputChange} name="month" type="text" placeholder="MM" value={formData.date.month}/>
+          <input onChange={handleDateInputChange} name="day" type="text" placeholder="DD" value={formData.date.day}/>
+          <input onChange={handleDateInputChange} name="year" type="text" placeholder="YYYY" value={formData.date.year}/>
         </section>
 
-        <section>
+        <section className="time-section">
           <label htmlFor="">Pick a time</label>
-          <input type="text" placeholder="00"/>
-          <input type="text" placeholder="00"/>
+          <input onChange={handleTimeInputChange} name="hour" type="text" placeholder="00" value={formData.time.hour}/>
+          <input onChange={handleTimeInputChange} name="minute" type="text" placeholder="00" value={formData.time.minute}/>
           <button>
           <span>AM</span>
           <img src="/images/icons/icon-arrow.svg" alt="arrow icon" />

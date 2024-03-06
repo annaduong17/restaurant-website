@@ -68,6 +68,7 @@ function Login({ setUserInfo }) {
   
   return ( 
     <form noValidate onSubmit={handleSubmit} className="login-form">
+      <h2>Log In</h2>
       <div>
         <input onChange={handleInputChange} name="email" type="email" placeholder="Email" value={formData.email} />
         {errors.email && <p>{errors.email}</p>}

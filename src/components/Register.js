@@ -100,6 +100,7 @@ function Register({ setUserInfo }) {
   
   return ( 
     <form noValidate onSubmit={handleSubmit} className="register-form">
+      <h2>Register</h2>
       <div className="first-name-container">
         <input onChange={handleInputChange} name="first-name" type="text" placeholder="First Name" value={formData.firstName} />
         {errors.firstName && <p>{errors.firstName}</p>}
@@ -121,8 +122,6 @@ function Register({ setUserInfo }) {
       </div>
       <div>
         {userExists && <p>Oops! It seems like you already have an account. Please use the link below to log in.</p>}
-        <p>Already have an account?</p>
-        <a href="">Log in here</a>
       </div>
     </form>
   );

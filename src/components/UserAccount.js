@@ -1,12 +1,13 @@
-import { useState } from 'react';
 import Register from "./Register";
 import Login from "./Login";
+import BookingForm from './BookingForm';
 
 function UserAccount({ setUserInfo }) {
   return (
-    <div>
+    <div className='user-account'>
       <Register setUserInfo={setUserInfo}/>
       <Login setUserInfo={setUserInfo}/>
+      <BookingForm />
     </div>
   );
 }

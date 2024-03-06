@@ -9,6 +9,8 @@ function Login({ setUserInfo }) {
 
   const [ errors, setErrors ] = useState({});
 
+  const [ failedLogin, setFailedLogin ] = useState("");
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
 
@@ -50,10 +52,15 @@ function Login({ setUserInfo }) {
           password: formData.password
         });
 
+        console.log(response);
         setUserInfo(response.data);
+        if (response.data.message) {
+          setFailedLogin(response.data.message);
+        }
 
       } catch (error) {
         console.log(error);
+        setFailedLogin("Invalid email or password. Please double-check your login details and try again.");
       }
     }
   }
@@ -70,6 +77,7 @@ function Login({ setUserInfo }) {
         {errors.password && <p>{errors.password}</p>}
       </div>
       <button type="submit">LOG IN</button>
+      {failedLogin && <p>{failedLogin}</p> }
     </form>
   );
 }

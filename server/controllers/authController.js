@@ -42,7 +42,11 @@ authController.getUser = async (req, res, next) => {
       if (valid) {
         res.locals.userId = rows[0]._id;
         res.locals.firstName = rows[0].first_name;
+      } else {
+        res.locals.message = "Invalid email or password. Please double-check your login details and try again.";
       }
+    } else {
+      res.locals.message = "Invalid email or password. Please double-check your login details and try again.";
     }
     return next();
 

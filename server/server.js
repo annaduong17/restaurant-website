@@ -18,7 +18,7 @@ app.use(cookieParser());
 
 // route handlers for users
 app.post('/login', authController.getUser, (req, res) => {
-  return res.status(201).json({ userId: res.locals.userId, firstName: res.locals.firstName });
+  return res.status(201).json({ userId: res.locals.userId, firstName: res.locals.firstName, message: res.locals.message });
 });
 
 app.post('/register', authController.checkUser, authController.registerUser, authController.getUser, (req, res) => {

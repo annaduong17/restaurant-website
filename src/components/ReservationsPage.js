@@ -21,7 +21,7 @@ function ReservationsPage() {
       <div className='booking'>
         <DineLogo />
         <Reservations />
-        {userInfo ? <BookingForm userInfo={userInfo} /> : <UserAccount setUserInfo={setUserInfo}/>}
+        {userInfo?.userId ? <BookingForm userInfo={userInfo} /> : <UserAccount setUserInfo={setUserInfo}/>}
       </div>
     </div>
   );

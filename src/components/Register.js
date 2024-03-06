@@ -12,8 +12,6 @@ function Register({ setUserInfo }) {
   const [ userExists, setUserExists ] = useState(false);
 
   const [ errors, setErrors ] = useState({});
-
-  const [ formSubmitted, setFormSubmitted ] = useState(false);
   
 
   const handleInputChange = (e) => {

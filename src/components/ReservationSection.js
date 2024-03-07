@@ -1,6 +1,4 @@
-import Button from './Button';
-
-function Reservations() {
+function ReservationSection() {
   return (
     <div className="reservations">
       <h1>Reservations</h1>
@@ -10,4 +8,4 @@ function Reservations() {
   );
 }
 
-export default Reservations;
+export default ReservationSection;

@@ -26,11 +26,14 @@ app.post('/register', authController.checkUser, authController.registerUser, aut
 });
 
 // route handlers for reservations
-app.post('/reservation', reservationController.postReservation, (req, res) => {
-  return res.status(201).json({ reservationId: res.locals.reservationId });
+app.get('/reservations/:id', reservationController.getReservations, (req, res) => {
+  return res.status(200).json(res.locals.reservations)
+})
+app.post('/reservations', reservationController.postReservation, (req, res) => {
+  return res.status(201).json(res.locals.reservation);
 });
 
-app.delete('/reservation', reservationController.deleteReservation, (req, res) => {
+app.delete('/reservations/:id', reservationController.deleteReservation, (req, res) => {
   return res.status(200).send(`Your reservation for ${res.locals.date} at ${res.locals.time} has been cancelled.`);
 });
 

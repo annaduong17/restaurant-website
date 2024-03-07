@@ -1,4 +1,3 @@
-const { resolve } = require("path/win32");
 const pool = require("../models/user");
 const reservationController = {};
 
@@ -9,22 +8,31 @@ function errorCreator(funcName, error) {
     message: { err: error.message },
   };
 }
+reservationController.getReservations = async (req, res, next) => {
+  try {
+    const { id } = req.params;
 
+    const getReservations = `SELECT * FROM reservations WHERE user_id = $1;`
+
+    const { rows } = await pool.query(getReservations, [id]);
+
+    res.locals.reservations = rows;
+    console.log(res.locals.reservations);
+    return next();
+    
+  } catch (error) {
+    return next(errorCreator('getReservations', error));
+  }
+}
 reservationController.postReservation = async (req, res, next) => {
   try {
-    const { user_id, date, time, num_of_guests, cardholder_name, card_type, card_number, exp_date, cvv_cvc, billing_address } = req.body;
+    const { user_id, date, time, num_of_guests, time_indicator } = req.body;
 
-    const insertCard = `INSERT INTO cards (cardholder_name, card_type, card_number, exp_date, cvv_cvc, billing_address) VALUES($1, $2, $3, $4, $5, $6) RETURNING *;`;
+    const insertRes = `INSERT INTO reservations (date, time, num_of_guests, time_indicator, user_id) VALUES($1, $2, $3, $4, $5) RETURNING *;`;
 
-    const { rows: cardRows } = await pool.query(insertCard, [ cardholder_name, card_type, card_number, exp_date, cvv_cvc, billing_address ]);
+    const { rows } = await pool.query(insertRes, [ date, time, num_of_guests, time_indicator, user_id ]);
 
-    const card_id = cardRows[0]._id;
-
-    const insertRes = `INSERT INTO reservations (date, time, num_of_guests card_id, user_id) VALUES($1, $2, $3, $4) RETURNING *;`;
-
-    const { rows: resRows } = await pool.query(insertRes, [ date, time, num_of_guests, card_id, user_id ]);
-
-    res.locals.reservationId = resRows[0]._id;
+    res.locals.reservation = rows[0];
     return next();
 
   } catch (error) {
@@ -34,12 +42,14 @@ reservationController.postReservation = async (req, res, next) => {
 
 reservationController.deleteReservation = async (req, res, next) => {
   try {
-    const { id } = req.body; 
+    const { id } = req.params; 
 
     const getRes = `SELECT * FROM public.reservations WHERE _id = $1;`;
     const { rows } = await pool.query(getRes, [id]);
     const date = rows[0].date;
     const time = rows[0].time;
+
+    console.log(rows);
 
     const deleteRes = `DELETE FROM reservations WHERE _id = $1;`;
     await pool.query(deleteRes, [id]);

@@ -7,7 +7,6 @@ function UserAccount({ setUserInfo }) {
     <div className='user-account'>
       <Register setUserInfo={setUserInfo}/>
       <Login setUserInfo={setUserInfo}/>
-      <BookingForm />
     </div>
   );
 }

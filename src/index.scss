@@ -323,11 +323,18 @@ body {
       }
 
       .booking-form {
-        grid-area: form; 
+        width: 400px;
+        grid-area: form;
         background-color: white;
 
         section {
           display: flex;
+          align-items: center;
+
+          p {
+            min-width: 100px;
+            margin-right: 50px;
+          }
         }
        }
      }

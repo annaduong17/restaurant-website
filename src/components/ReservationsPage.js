@@ -1,8 +1,9 @@
 import { useState } from 'react';
-import Reservations from './Reservations';
+import ReservationSection from './ReservationSection';
 import DineLogo from './DineLogo';
 import UserAccount from './UserAccount';
 import BookingForm from './BookingForm';
+import ReservationList from './ReservationList';
 
 function ReservationsPage() {
   const [ userInfo, setUserInfo ] = useState(null);
@@ -20,9 +21,10 @@ function ReservationsPage() {
       </div>
       <div className='booking'>
         <DineLogo />
-        <Reservations />
-        <BookingForm userInfo={userInfo} />
-        <UserAccount setUserInfo={setUserInfo}/>
+        {userInfo?.userId ? 
+        <ReservationList userInfo={userInfo} /> : <ReservationSection />}
+        {userInfo?.userId ? <BookingForm userInfo={userInfo} setUserInfo={setUserInfo} /> :
+        <UserAccount setUserInfo={setUserInfo}/>}
       </div>
     </div>
   );

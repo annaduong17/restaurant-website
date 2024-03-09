@@ -3,17 +3,15 @@ import axios from 'axios';
 import Reservation from './Reservation';
 
 function ReservationList({ userInfo }) {
-  const [ reservations, setReservations ] = useState([])
+  const [ reservations, setReservations ] = useState([]);
 
-  const fetchReservations = async () => {
+  const fetchReservations = useCallback(async () => {
     const response = await axios.get(`http://localhost:3001/reservations/${userInfo.userId}`);
 
-    console.log(response.data);
     setReservations(response.data);
-  };
+  }, [userInfo]);
   
   
-
   const renderedItems = reservations.map((reservation, i) => {
     return (
       <Reservation key={i} reservation={reservation} setReservations={setReservations}/>
@@ -22,7 +20,7 @@ function ReservationList({ userInfo }) {
 
   useEffect(() => {
     fetchReservations(userInfo.userId);
-  }, [userInfo.userId]);
+  }, [fetchReservations]);
 
   return (
     <div className='reservation-list'>

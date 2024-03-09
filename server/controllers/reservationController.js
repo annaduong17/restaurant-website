@@ -33,6 +33,7 @@ reservationController.postReservation = async (req, res, next) => {
     const { rows } = await pool.query(insertRes, [ date, time, num_of_guests, time_indicator, user_id ]);
 
     res.locals.reservation = rows[0];
+  
     return next();
 
   } catch (error) {

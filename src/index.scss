@@ -8,14 +8,44 @@ $cod-gray: #111111;
 $mirage: #17192b;
 $ebony-clay: #242b37;
 $shuttle-gray: #5c6779;
+$light-gray: #979797;
+
+// errors 
+$red: #B54949;
 
 html, 
 body {
   font-family: 'League Spartan', sans-serif;
   font-weight: 400;
   font-size: 20px;
+  color: $cod-gray;
   margin: 0;
   width: 100%;
+}
+
+form {
+  box-shadow: 0 8px 40px -10px $light-gray;
+}
+
+button {
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.input-wrapper {
+  height: 3rem;
+}
+
+.border-bottom {
+  border-bottom: 1px solid $light-gray;
+  margin-block: 0.5rem;
+}
+
+.error {
+  font-size: 0.75rem;
+  color: $red;
+  margin: 0;
 }
 
 .app {
@@ -29,12 +59,24 @@ body {
 }
 
 .btn {
-  border: 1px solid white;
+  border: 1px solid $cod-gray;
+  background-color: white;
   padding: 20px 50px;
-  color: white;
   font-size: 0.85rem;
   text-decoration: none;
   letter-spacing: 3px;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.account-btn {
+  margin-block: 1.5rem;
+}
+
+.button-container {
+  text-align: center;
 }
 
 .home-page {
@@ -196,7 +238,7 @@ body {
   }
 
   .booking-btn {
-    background-color: black;
+    background-color: $cod-gray;
     margin-block: 2rem;
   }
 }
@@ -243,7 +285,7 @@ body {
 
 .footer {
   display: flex;
-  background-color: black;
+  background-color: $cod-gray;
   color: white;
   padding-left: 165px;
   padding-block: 50px;
@@ -265,6 +307,14 @@ body {
 
 .reservations-page {
   position: relative;
+
+  .displays {
+    img:last-child {
+      position: absolute;
+      top: 38.25rem;
+      left: 32.75rem;
+    }
+  }
 
   .user-account {
     display: flex;
@@ -290,7 +340,7 @@ body {
       grid-area: res;
       color: white;
       width: 445px;
-      margin-right: 50px;
+      margin-right: 100px;
 
       h1 {
         font-size: 4rem;
@@ -347,7 +397,8 @@ body {
   background-color: white;
   margin-right: 30px;
   padding: 30px;
-  min-width: 250px;
+  min-width: 500px;
+  
 
   input {
     outline: none;

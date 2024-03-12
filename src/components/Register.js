@@ -1,7 +1,8 @@
 import { useState } from "react";
 import axios from 'axios';
+import Button from "./Button";
 
-function Register({ setUserInfo }) {
+function Register({ setUserInfo, setShowLogin }) {
   const [ formData, setFormData ] = useState({
     firstName: "",
     lastName: "",
@@ -65,6 +66,10 @@ function Register({ setUserInfo }) {
     }
   };
 
+  const handleLoginClick = () => {
+    setShowLogin(true);
+  }
+  
   const validateForm = (formData) => {
      const newErrors = {};
 
@@ -101,27 +106,36 @@ function Register({ setUserInfo }) {
   return ( 
     <form noValidate onSubmit={handleSubmit} className="register-form">
       <h2>Register</h2>
-      <div className="first-name-container">
-        <input onChange={handleInputChange} name="first-name" type="text" placeholder="First Name" value={formData.firstName} />
-        {errors.firstName && <p>{errors.firstName}</p>}
+      <div className="input-wrapper">
+        <div className="first-name-container border-bottom">
+          <input onChange={handleInputChange} name="first-name" type="text" placeholder="First Name" value={formData.firstName} />
+        </div>
+        {errors.firstName && <p className="error">{errors.firstName}</p>}
       </div>
-      <div className="last-name-container">
-        <input onChange={handleInputChange} name="last-name" type="text" placeholder="Last Name" value={formData.lastName} />
-        {errors.lastName && <p>{errors.lastName}</p>}
+      <div className="input-wrapper">
+        <div className="last-name-container border-bottom">
+          <input onChange={handleInputChange} name="last-name" type="text" placeholder="Last Name" value={formData.lastName} />
+        </div>
+        {errors.lastName && <p className="error">{errors.lastName}</p>}
       </div>
-      <div className="email-name-container">
-        <input onChange={handleInputChange} name="email" type="email" placeholder="Email" value={formData.email} />
-        {errors.email && <p>{errors.email}</p>}
+      <div className="input-wrapper">
+        <div className="email-name-container border-bottom">
+          <input onChange={handleInputChange} name="email" type="email" placeholder="Email" value={formData.email} />
+        </div>
+        {errors.email && <p className="error">{errors.email}</p>}
       </div>
-      <div className="password-container">
-        <input onChange={handleInputChange} name="password" type="password" placeholder="Password" value={formData.password} />
-        {errors.password && <p>{errors.password}</p>}
+      <div className="input-wrapper">
+        <div className="password-container border-bottom">
+          <input onChange={handleInputChange} name="password" type="password" placeholder="Password" value={formData.password} />
+        </div>
+        {errors.password && <p className="error">{errors.password}</p>}
+      </div>
+      <div className="button-container">
+        <Button type="submit" className="account-btn">CREATE ACCOUNT</Button>
       </div>
       <div>
-        <button type="submit">CREATE ACCOUNT</button>
-      </div>
-      <div>
-        {userExists && <p>Oops! It seems like you already have an account. Please use the link below to log in.</p>}
+        {userExists && <p className="error">Oops! It seems like you already have an account. Please use the link below to log in.</p>}
+        <p>Already have an account? <button onClick={handleLoginClick}>Log in here.</button></p>
       </div>
     </form>
   );

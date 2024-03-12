@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useState } from 'react';
+import Button from './Button';
 
 function Login({ setUserInfo }) {
   const [ formData, setFormData ] = useState({
@@ -69,16 +70,22 @@ function Login({ setUserInfo }) {
   return ( 
     <form noValidate onSubmit={handleSubmit} className="login-form">
       <h2>Log In</h2>
-      <div>
-        <input onChange={handleInputChange} name="email" type="email" placeholder="Email" value={formData.email} />
-        {errors.email && <p>{errors.email}</p>}
+      <div className='input-wrapper'>
+        <div className='border-bottom'>
+          <input onChange={handleInputChange} name="email" type="email" placeholder="Email" value={formData.email} />
+        </div>
+        {errors.email && <p className='error'>{errors.email}</p>}
       </div>
-      <div>
-        <input onChange={handleInputChange} name="password" type="password" placeholder="Password" value={formData.password} />
-        {errors.password && <p>{errors.password}</p>}
+      <div className='input-wrapper'>
+        <div className='border-bottom'>
+          <input onChange={handleInputChange} name="password" type="password" placeholder="Password" value={formData.password} />
+        </div>
+        {errors.password && <p className='error'>{errors.password}</p>}
       </div>
-      <button type="submit">LOG IN</button>
-      {failedLogin && <p>{failedLogin}</p> }
+      <div className='button-container'>
+        <Button type="submit" className="account-btn">LOG IN</Button>
+        {failedLogin && <p>{failedLogin}</p> }
+      </div>
     </form>
   );
 }

@@ -7,6 +7,7 @@ import ReservationList from './ReservationList';
 
 function ReservationsPage() {
   const [ userInfo, setUserInfo ] = useState(null);
+  const [ showLogin, setShowLogin ] = useState(false);
 
   const imgDesktop = "/images/booking/hero-bg-desktop.jpg";
   const imgTablet = "/images/booking/hero-bg/tablet.jpg";
@@ -24,7 +25,7 @@ function ReservationsPage() {
         {userInfo?.userId ? 
         <ReservationList userInfo={userInfo} /> : <ReservationSection />}
         {userInfo?.userId ? <BookingForm userInfo={userInfo} setUserInfo={setUserInfo} /> :
-        <UserAccount setUserInfo={setUserInfo}/>}
+        <UserAccount showLogin={showLogin} setShowLogin={setShowLogin} setUserInfo={setUserInfo}/>}
       </div>
     </div>
   );

@@ -2,11 +2,10 @@ import Register from "./Register";
 import Login from "./Login";
 import BookingForm from './BookingForm';
 
-function UserAccount({ setUserInfo }) {
+function UserAccount({ setUserInfo, showLogin, setShowLogin }) {
   return (
     <div className='user-account'>
-      <Register setUserInfo={setUserInfo}/>
-      <Login setUserInfo={setUserInfo}/>
+      {showLogin ? <Login setUserInfo={setUserInfo}/> : <Register setShowLogin={setShowLogin} setUserInfo={setUserInfo}/>}
     </div>
   );
 }

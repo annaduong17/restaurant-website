@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
+import Button from './Button';
 
 function BookingForm({ userInfo, setUserInfo }) {
   const [ formData, setFormData ] = useState({
@@ -12,6 +13,8 @@ function BookingForm({ userInfo, setUserInfo }) {
     numOfGuests: 0
   });
   const [ errors, setErrors ] = useState({});
+  const [ showTimeIndicator, setShowTimeIndicator ] = useState(false);
+  const [ selectedTime, setSelectedTime ] = useState("AM");
 
   const handleInputChange = (e) => {
     const { name, value} = e.target;
@@ -32,20 +35,24 @@ function BookingForm({ userInfo, setUserInfo }) {
 
   const handleDecrementClick = () => {
     setFormData(prev => {
-      if (prev.numOfGuests === 0) {
-        return 0;
-      } else {
+      if (prev.numOfGuests > 0) {
         const updatedFormData = {...prev, numOfGuests: prev.numOfGuests - 1};
         return updatedFormData;
       }
     });
   };
 
+  const handleTimeIndicatorClick = () => {
+    setShowTimeIndicator(prev => !prev);
+  }
+
   const handleAMClick = () => {
     setFormData(prev => {
       const updatedFormData = {...prev, timeIndicator: "AM"};
       return updatedFormData;
     });
+    setSelectedTime("AM");
+    setShowTimeIndicator(prev => !prev);
   };
 
   const handlePMClick = () => {
@@ -53,6 +60,8 @@ function BookingForm({ userInfo, setUserInfo }) {
       const updatedFormData = {...prev, timeIndicator: "PM"};
       return updatedFormData;
     });
+    setSelectedTime("PM");
+    setShowTimeIndicator(prev => !prev);
   };
 
   const validateForm = (formData) => {
@@ -95,13 +104,13 @@ function BookingForm({ userInfo, setUserInfo }) {
       newErrors.minute = 'Must contain 2 digits';
     } else if (minute > 60) {
       newErrors.minute = 'Must be less than 60';
-    } else if (minute < 1) {
-      newErrors.minute = 'Must be at least 1';
+    } else if (minute < 0) {
+      newErrors.minute = 'Must be a positive value';
     }
 
     // validate number of guests
-    if (numOfGuests < 1) {
-      newErrors.numOfGuests = 'Must be at least 1';
+    if (numOfGuests === 0) {
+      newErrors.numOfGuests = "Must be at least 1";
     } 
 
     return newErrors;
@@ -144,61 +153,76 @@ function BookingForm({ userInfo, setUserInfo }) {
       <h2>Hi {userInfo?.firstName}!</h2>
       <form onSubmit={handleSubmit} className="booking-form">
         <section className="date-section">
-          <p>Pick a date</p>
-          <div>
-            <input onChange={handleInputChange} name="month" type="text" placeholder="MM" value={formData.month}/>
-            {errors.month && <p>{errors.month}</p>}
+          <p className='heading'>Pick a date</p>
+          <div className='input-wrapper'>
+            <div className='border-bottom'>
+              <input onChange={handleInputChange} name="month" type="text" placeholder="MM" value={formData.month}/>
+            </div>
+            {errors.month && <p className='error'>{errors.month}</p>}
           </div>
-          <div>
-            <input onChange={handleInputChange} name="day" type="text" placeholder="DD" value={formData.day}/>
-            {errors.day && <p>{errors.day}</p>}
+          <div className='input-wrapper'>
+            <div className='border-bottom'>
+              <input onChange={handleInputChange} name="day" type="text" placeholder="DD" value={formData.day}/>
+            </div>
+            {errors.day && <p className='error'>{errors.day}</p>}
           </div>
-          <div>
-            <input onChange={handleInputChange} name="year" type="text" placeholder="YYYY" value={formData.year}/>
-            {errors.year && <p>{errors.year}</p>}
+          <div className='input-wrapper'>
+            <div className='border-bottom'>
+              <input onChange={handleInputChange} name="year" type="text" placeholder="YYYY" value={formData.year}/>
+            </div>
+            {errors.year && <p className='error'>{errors.year}</p>}
           </div>
         </section>
 
         <section className="time-section">
-          <p>Pick a time</p>
-          <div>
-            <input onChange={handleInputChange} name="hour" type="text" placeholder="00" value={formData.hour}/>
-            {errors.hour && <p>{errors.hour}</p>}
+          <p className='heading'>Pick a time</p>
+          <div className='input-wrapper'>
+            <div className='border-bottom'>
+              <input onChange={handleInputChange} name="hour" type="text" placeholder="00" value={formData.hour}/>
+            </div>
+            {errors.hour && <p className='error'>{errors.hour}</p>}
           </div>
-          <div>
-            <input onChange={handleInputChange} name="minute" type="text" placeholder="00" value={formData.minute}/>
-            {errors.minute && <p>{errors.minute}</p>}
+          <div className='input-wrapper'>
+            <div className='border-bottom'>
+              <input onChange={handleInputChange} name="minute" type="text" placeholder="00" value={formData.minute}/>
+            </div>
+            {errors.minute && <p className='error'>{errors.minute}</p>}
           </div>
-          <button>
-          <span>{formData.timeIndicator}</span>
-          <img src="/images/icons/icon-arrow.svg" alt="arrow icon" />
-          </button>
-
-          <ul>
+          <div className='time-indicator'>
+            <button type='button' onClick={handleTimeIndicatorClick}>
+            <span>{formData.timeIndicator}</span>
+            <img className={`${showTimeIndicator ? "flip" : ""}`} src="/images/icons/icon-arrow.svg" alt="arrow icon" />
+            </button>
+            {showTimeIndicator && <ul>
           <li>
-            <img src="/images/icons/icon-check.svg" alt="check icon" />
+            {selectedTime === "AM" && <img src="/images/icons/icon-check.svg" alt="check icon" />}
             <span onClick={handleAMClick}>AM</span>
           </li>
           <li>
-            <img src="/images/icons/icon-check.svg" alt="check icon" />
+            {selectedTime === "PM" && <img src="/images/icons/icon-check.svg" alt="check icon" />}
             <span onClick={handlePMClick}>PM</span>
           </li>
-          </ul>
+          </ul>}
+          </div>
+
         </section>
 
-        <section>
-          <button type='button' onClick={handleDecrementClick}>
-            <img src="/images/icons/icon-minus.svg" alt="minus icon" />
-          </button>
-          <span>{formData.numOfGuests} people</span>
-          <button type='button' onClick={handleIncrementClick}>
-            <img src="/images/icons/icon-plus.svg" alt="plus icon" />
-          </button>
-          {errors.numOfGuests && <p>{errors.numOfGuests}</p>}
+        <section className='guests-section input-wrapper'>
+          <div>
+            <button disabled={formData.numOfGuests === 0} type='button' onClick={handleDecrementClick}>
+              <img src="/images/icons/icon-minus.svg" alt="minus icon" />
+            </button>
+            <span>{formData.numOfGuests} people</span>
+            <button type='button' onClick={handleIncrementClick}>
+              <img src="/images/icons/icon-plus.svg" alt="plus icon" />
+            </button>
+          </div>
+          {errors.numOfGuests && <p className='error'>{errors.numOfGuests}</p>}
         </section>
+        
 
-        <section>
-          <button type="submit">MAKE RESERVATION</button>
+        <section className='button-container'>
+          <Button type="submit">MAKE RESERVATION</Button>
         </section>
       </form>
     </div>

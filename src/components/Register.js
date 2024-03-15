@@ -69,7 +69,7 @@ function Register({ setUserInfo, setShowLogin }) {
   const handleLoginClick = () => {
     setShowLogin(true);
   }
-  
+
   const validateForm = (formData) => {
      const newErrors = {};
 
@@ -134,7 +134,7 @@ function Register({ setUserInfo, setShowLogin }) {
         <Button type="submit" className="account-btn">CREATE ACCOUNT</Button>
       </div>
       <div>
-        {userExists && <p className="error">Oops! It seems like you already have an account. Please use the link below to log in.</p>}
+        {userExists && <p className="error">Oops! It seems like you already have an account.</p>}
         <p>Already have an account? <button onClick={handleLoginClick}>Log in here.</button></p>
       </div>
     </form>

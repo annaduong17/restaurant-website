@@ -50,6 +50,9 @@ button {
   position: relative;
 }
 
+.logo-wrapper {
+  height: 100px; 
+}
 .dine-logo {
   width: 100px; 
 }
@@ -327,9 +330,9 @@ button {
     z-index: 1;
     margin-inline: 165px;
 
-    .dine-logo {
+    .logo-wrapper {
       grid-area: logo;
-      margin-block: 50px 100px;
+      margin-block: 50px;
     }
     
     .reservations {

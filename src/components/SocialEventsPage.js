@@ -1,6 +1,6 @@
 import Event from "./Event";
 
-function SocialEventsPage() {
+function SocialEventsPage({ activeEvent, toggleActiveEvent}) {
   return (
     <Event 
     title="Social Events"
@@ -8,6 +8,8 @@ function SocialEventsPage() {
     imgDesktop="/images/homepage/social-events-desktop.jpg"
     imgTablet="/images/homepage/social-events-tablet.jpg"
     imgMobile="/images/homepage/social-events-mobile.jpg"
+    activeEvent={activeEvent}
+    toggleActiveEvent={toggleActiveEvent}
     />
   )
 }

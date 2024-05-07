@@ -1,6 +1,6 @@
 import Event from "./Event";
 
-function SpecialEventsPage() {
+function SpecialEventsPage({ activeEvent, toggleActiveEvent }) {
   return (
     <Event 
     title="Special Events"
@@ -8,6 +8,8 @@ function SpecialEventsPage() {
     imgDesktop="/images/homepage/special-events-desktop.jpg"
     imgTablet="/images/homepage/special-events-tablet.jpg"
     imgMobile="/images/homepage/special-events-mobile.jpg"
+    activeEvent={activeEvent}
+    toggleActiveEvent={toggleActiveEvent}
     />
   )
 }

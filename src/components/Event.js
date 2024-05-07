@@ -1,7 +1,7 @@
 import Button from "./Button";
 import EventNavLinks from "./EventNavLinks";
 
-function Event({ title, description, imgDesktop, imgMobile }) {
+function Event({ title, description, imgDesktop, imgMobile, activeEvent, toggleActiveEvent }) {
   return (
     <div className="event">
       <div className="pattern">
@@ -17,7 +17,7 @@ function Event({ title, description, imgDesktop, imgMobile }) {
           <h2>{title}</h2>
           <p>{description}</p>
           <Button path="/reservations" className="booking-btn">BOOK A TABLE</Button>
-          <EventNavLinks />
+          <EventNavLinks activeEvent={activeEvent} toggleActiveEvent={toggleActiveEvent} />
         </div>
       </section>
     </div>

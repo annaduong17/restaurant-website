@@ -1,9 +1,18 @@
+import { useState } from 'react';
 import Header from "./Header";
 import HighlightSection from './HighlightSection';
 import Event from './Event';
 import Banner from './Banner';
+import SocialEventsPage from './SocialEventsPage';
+import SpecialEventsPage from './SpecialEventsPage';
 
 function HomePage() {
+  const [ activeEvent, setActiveEvent ] = useState("FAMILY GATHERING");
+
+  const toggleActiveEvent = (e) => {
+    setActiveEvent(e.target.textContent);
+  };
+
   return (
     <div className="home-page">
       <Header />
@@ -40,12 +49,18 @@ function HomePage() {
 
       <HighlightSection />
 
-      <Event 
+      {activeEvent === "FAMILY GATHERING" && <Event 
         title="Family Gathering"
         description="We love catering for entire families. So please bring everyone along for a special meal with your loved ones. We'll provide a memorable experience for all."
         imgDesktop="/images/homepage/family-gathering-desktop.jpg"
         imgMobile="/images/homepage/family-gathering-mobile.jpg"
-      />
+        activeEvent={activeEvent}
+        toggleActiveEvent={toggleActiveEvent}
+      />}
+      {activeEvent === "SOCIAL EVENTS" && <SocialEventsPage activeEvent={activeEvent}
+        toggleActiveEvent={toggleActiveEvent}/>}
+      {activeEvent === "SPECIAL EVENTS" && <SpecialEventsPage activeEvent={activeEvent}
+        toggleActiveEvent={toggleActiveEvent}/>}
 
       <Banner />
     </div>

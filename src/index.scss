@@ -245,14 +245,28 @@ button {
 .event-navlinks {
   margin-top: 100px;
   position: relative;
+  color: $light-gray;
 
   span {
     width: 95px;
     height: 1px;
     background-color: $beaver;
     position: absolute;
+    margin-top: 5px;
     left: -120px;
     z-index: -1;
+
+    &.first {
+      top: 8px;
+    }
+
+    &.second {
+      top: 38px;
+    }
+
+    &.third {
+      top: 68px;
+    }
   }
 
   .link {

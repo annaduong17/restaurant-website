@@ -17,7 +17,7 @@ reservationController.getReservations = async (req, res, next) => {
     const { rows } = await pool.query(getReservations, [id]);
 
     res.locals.reservations = rows;
-    console.log(res.locals.reservations);
+    
     return next();
     
   } catch (error) {

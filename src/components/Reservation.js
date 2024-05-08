@@ -1,4 +1,3 @@
-import { toBeInTheDocument } from '@testing-library/jest-dom/matchers';
 import axios from 'axios';
 
 function Reservation({ reservation, setReservations }) {
@@ -15,7 +14,7 @@ function Reservation({ reservation, setReservations }) {
   }
 
   return (
-    <div>
+    <div className='reservation'>
       <span>Reservation id: {reservation._id}</span>
       <button onClick={() => handleDeleteClick(reservation._id)}>Cancel Reservation</button>
     </div>

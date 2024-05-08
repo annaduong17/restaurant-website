@@ -132,11 +132,21 @@ function BookingForm({ userInfo, setUserInfo }) {
           time_indicator: formData.timeIndicator
         });
   
-        console.log(response.data);
+        // console.log(response.data);
         if (response.data._id) {
           setUserInfo(prev => {
             const updatedUserInfo = {...prev, resId: response.data._id};
             return updatedUserInfo;
+          });
+
+          setFormData({
+            month: "",
+            day: "",
+            year: "",
+            hour: "",
+            minute: "", 
+            timeIndicator: "AM", 
+            numOfGuests: 0
           });
         }
   

@@ -87,8 +87,8 @@ function BookingForm({ userInfo, setUserInfo }) {
 
     if (year.length < 4) {
       newErrors.year = 'Must contain 4 digits';
-    } else if (year > new Date().getFullYear()) {
-      newErrors.year = 'Must be in the past';
+    } else if (year < new Date().getFullYear()) {
+      newErrors.year = 'Must be in the future';
     }
 
     // validate time 
@@ -148,6 +148,8 @@ function BookingForm({ userInfo, setUserInfo }) {
             timeIndicator: "AM", 
             numOfGuests: 0
           });
+
+          setSelectedTime("AM");
         }
   
       } catch (error) {

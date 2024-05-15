@@ -27,11 +27,13 @@ reservationController.getReservations = async (req, res, next) => {
 reservationController.postReservation = async (req, res, next) => {
   try {
     const { user_id, date, time, num_of_guests, time_indicator } = req.body;
+     console.log("date from reservation controller", date);
 
     const insertRes = `INSERT INTO reservations (date, time, num_of_guests, time_indicator, user_id) VALUES($1, $2, $3, $4, $5) RETURNING *;`;
 
     const { rows } = await pool.query(insertRes, [ date, time, num_of_guests, time_indicator, user_id ]);
 
+    console.log(rows[0], "this is from reservationController");
     res.locals.reservation = rows[0];
   
     return next();
@@ -49,8 +51,6 @@ reservationController.deleteReservation = async (req, res, next) => {
     const { rows } = await pool.query(getRes, [id]);
     const date = rows[0].date;
     const time = rows[0].time;
-
-    console.log(rows);
 
     const deleteRes = `DELETE FROM reservations WHERE _id = $1;`;
     await pool.query(deleteRes, [id]);
